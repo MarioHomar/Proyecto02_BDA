@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="proyectobda2">
+	<table_structure name="allele">
+		<field Field="ord_num" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="start_pos" Type="mediumtext" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="end_pos" Type="mediumtext" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="strand" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="allele" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="ord_num" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="allele" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2015-10-27 22:22:02" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="allele">
+	</table_data>
+	<table_structure name="allelic_reference_type">
+		<field Field="sequence" Type="varchar(45)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="Allele_ord_num" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="allelic_reference_type" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="sequence" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="allelic_reference_type" Non_unique="1" Key_name="fk_Allelic_Reference_Type_Allele1_idx" Seq_in_index="1" Column_name="Allele_ord_num" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="allelic_reference_type" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2015-10-27 22:22:04" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="allelic_reference_type">
+	</table_data>
+	<table_structure name="bibliography_db">
+		<field Field="Bib_DB_Name" Type="varchar(45)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="url" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<key Table="bibliography_db" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="Bib_DB_Name" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="bibliography_db" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="0" Data_free="0" Create_time="2015-10-27 22:22:04" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="bibliography_db">
+	</table_data>
+	<table_structure name="bibliography_reference">
+		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="title" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="authors" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="abstract" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="publication" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Bib_DB_Name" Type="varchar(45)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="bibliography_reference" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="bibliography_reference" Non_unique="1" Key_name="fk_Bibliography_Reference_Bibliography_DB1_idx" Seq_in_index="1" Column_name="Bib_DB_Name" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="bibliography_reference" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2015-10-27 22:22:05" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="bibliography_reference">
+	</table_data>
+	<table_structure name="data_bank">
+		<field Field="id" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="name" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="descripcion" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Gene_id_symbol" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<field Field="Allele_ord_num" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="data_bank" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="data_bank" Non_unique="1" Key_name="fk_Data_Bank_Gene_idx" Seq_in_index="1" Column_name="Gene_id_symbol" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="data_bank" Non_unique="1" Key_name="fk_Data_Bank_Allele1_idx" Seq_in_index="1" Column_name="Allele_ord_num" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="data_bank" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="32768" Data_free="0" Create_time="2015-10-27 22:22:03" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="data_bank">
+	</table_data>
+	<table_structure name="gene">
+		<field Field="id_symbol" Type="int(11)" Null="NO" Key="PRI" Extra="" Comment="" />
+		<field Field="id_hugo" Type="int(11)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="official_name" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="summary" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="chromosome" Type="smallint(2)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="locus" Type="varchar(45)" Null="YES" Key="" Extra="" Comment="" />
+		<field Field="Allele_ord_num" Type="int(11)" Null="NO" Key="MUL" Extra="" Comment="" />
+		<key Table="gene" Non_unique="0" Key_name="PRIMARY" Seq_in_index="1" Column_name="id_symbol" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<key Table="gene" Non_unique="1" Key_name="fk_Gene_Allele1_idx" Seq_in_index="1" Column_name="Allele_ord_num" Collation="A" Cardinality="0" Null="" Index_type="BTREE" Comment="" Index_comment="" />
+		<options Name="gene" Engine="InnoDB" Version="10" Row_format="Compact" Rows="0" Avg_row_length="0" Data_length="16384" Max_data_length="0" Index_length="16384" Data_free="0" Create_time="2015-10-27 22:22:02" Collation="utf8_general_ci" Create_options="" Comment="" />
+	</table_structure>
+	<table_data name="gene">
+	</table_data>
+</database>
+</mysqldump>
