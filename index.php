@@ -11,9 +11,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            $xml= simplexml_load_file("Proyecto02.xml") or die ("Error, no se pudo crear el objeto.");
-            echo $xml -> table_structure[0] -> name . "<br>";
-            echo $xml -> table_structure[1] -> name;
+        $xml = simplexml_load_file("Proyecto02.xml") or die("Error, no se pudo crear el objeto.");
+        echo $xml->table_structure[0]->field . "<br>";
+        echo $xml->table_structure[1]->field;
         ?>
+        
     </body>
+    
 </html>
